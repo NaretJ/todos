@@ -31,9 +31,9 @@
           <tbody>
             <tr ng-repeat="todo in todos" >
               <form name="CheckForm" >
-                <td><input type="checkbox"  ng-model="check"  ng-checked="todo[$index].done == true" ng-click = "update()"></td>
+                <td><input type="checkbox"  ng-model="check"  ng-checked="todo.done == true" ng-click = "update()"></td>
                 <td>{{ todo.title }}</td>
-                <td><ng-show ng-show = "todo[$index].done == true"> Complete </ng-show></td>
+                <td><ng-show ng-show = "todo.done == true"> Complete </ng-show></td>
               </form>
             </tr>
           </tbody>
