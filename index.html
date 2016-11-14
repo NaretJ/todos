@@ -16,7 +16,7 @@
             </div>
             <button type="button" class="btn btn-success" ng-click="add()" >Add</button>
           </form>
-      </div>
+
 
         <h2>Todos list</h2>
       <div ng-controller="ListTodoController">
@@ -30,14 +30,14 @@
           </thead>
           <tbody>
             <tr ng-repeat="todo in todos" >
-              <form name="CheckForm" >
-                <td><input type="checkbox"  ng-model="check"  ng-checked="todo.done == true" ng-click = "update()"></td>
+                <td><input type="checkbox"  ng-model="todo.done"  ng-checked="todo.done == true" ng-click = "update()"></td>
                 <td>{{ todo.title }}</td>
-                <td><ng-show ng-show = "todo.done == true"> Complete </ng-show></td>
-              </form>
+                <td><div ng-show = "todo.done == true"> Complete </div></td>
             </tr>
           </tbody>
         </table>
+      </div>
+
       </div>
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
