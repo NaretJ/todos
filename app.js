@@ -15,11 +15,21 @@ angular.module('TodoApp',[])
         self.todos.push(todo);
       }
 
-
+      self.update = function (item){
+        if(item.done === false){
+          item.done = true
+        }
+        else{
+          item.done = false
+        }
+      }
 
     })
     .controller('ListTodoController', function ($scope, TodoService) {
       $scope.todos = TodoService.list();
+      $scope.update = function (item){
+        TodoService.update(item)
+      }
     })
     .controller('AddTodoController', function ($scope, TodoService) {
           $scope.title = ''
@@ -27,13 +37,13 @@ angular.module('TodoApp',[])
             if($scope.title !== ''){
               var todo = {
                 title: $scope.title,
-                done: $scope.done = false
+                done: $scope.check = false
               }
               TodoService.add(todo)
               resetTodo()
             }
           }
-        
+
           function resetTodo(){
             $scope.title = ''
           }

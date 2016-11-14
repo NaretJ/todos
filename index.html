@@ -18,7 +18,7 @@
           </form>
       </div>
 
-        <h2>Todos list</h2>
+      <h2>Todos list</h2>
       <div ng-controller="ListTodoController">
         <table class="table table-hover">
           <thead>
@@ -31,9 +31,9 @@
           <tbody>
             <tr ng-repeat="todo in todos" >
               <form name="CheckForm" >
-                <td><input type="checkbox"  ng-model="check"  ng-checked="todo.done == true" ng-click = "update()"></td>
-                <td>{{ todo.title }}</td>
-                <td><ng-show ng-show = "todo.done == true"> Complete </ng-show></td>
+                <td><input type="checkbox"  ng-model="check" ng-checked="todo.done == true" ng-change = "update(todo)"></td>
+                <td>{{ todo.title}}</td>
+                <td><ng-show ng-show = "todo.done === true">Complete</ng-show></td>
               </form>
             </tr>
           </tbody>
