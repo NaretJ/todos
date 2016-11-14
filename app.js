@@ -19,7 +19,7 @@ angular.module('TodoApp',[])
         if(item.done === false){
           item.done = true
         }
-        else{
+        else if(item.done === true){
           item.done = false
         }
       }
@@ -37,7 +37,7 @@ angular.module('TodoApp',[])
             if($scope.title !== ''){
               var todo = {
                 title: $scope.title,
-                done: $scope.check = false
+                done: false
               }
               TodoService.add(todo)
               resetTodo()
