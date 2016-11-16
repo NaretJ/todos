@@ -5,7 +5,7 @@ angular.module('TodoApp',[])
       self.todos  = [
         {title:'massage',done:false},
         {title:'test',done:true}
-    ]
+      ]
 
       self.list = function () {
         return self.todos

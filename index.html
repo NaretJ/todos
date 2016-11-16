@@ -32,11 +32,9 @@
           </thead>
           <tbody>
             <tr ng-repeat="todo in todos" >
-              <form name="CheckForm" >
-                <td><input type="checkbox"  ng-model="check" ng-checked="todo.done === true" ng-click = "update(todo)"></td>
-                <td>{{ todo.title}}</td>
-                <td><ng-show ng-show = "todo.done === true">Complete</ng-show></td>
-              </form>
+              <td><input type="checkbox" ng-model="done" ng-checked="todo.done === true" ng-click = "update(todo)"></td>
+              <td>{{ todo.title}}</td>
+              <td><ng-show ng-show = "todo.done === true">Complete</ng-show></td>
             </tr>
           </tbody>
         </table>
