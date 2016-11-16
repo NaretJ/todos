@@ -27,9 +27,6 @@ angular.module('TodoApp',[])
     })
     .controller('ListTodoController', function ($scope, TodoService) {
       $scope.todos = TodoService.list();
-      $scope.update = function (item){
-        TodoService.update(item)
-      }
     })
     .controller('AddTodoController', function ($scope, TodoService) {
           $scope.title = ''
@@ -47,4 +44,9 @@ angular.module('TodoApp',[])
           function resetTodo(){
             $scope.title = ''
           }
+    })
+    .controller('UpdateCheckboxController', function ($scope, TodoService) {
+      $scope.update = function (item){
+        TodoService.update(item)
+      }
     })

@@ -19,25 +19,27 @@
           <button type="button" class="btn btn-success" ng-click="add()" >Add</button>
         </form>
       </div>
-    </br>
-      <h2>Todos list</h2>
-      <div ng-controller="ListTodoController">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Check</th>
-              <th>Todo</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="todo in todos" >
-              <td><input type="checkbox" ng-model="done" ng-checked="todo.done === true" ng-click = "update(todo)"></td>
-              <td>{{ todo.title}}</td>
-              <td><ng-show ng-show = "todo.done === true">Complete</ng-show></td>
-            </tr>
-          </tbody>
-        </table>
+      </br>
+        <h2>Todos list</h2>
+      <div ng-controller="UpdateCheckboxController">
+        <div ng-controller="ListTodoController">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Check</th>
+                <th>Todo</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="todo in todos" >
+                <td><input type="checkbox" ng-model="done" ng-checked="todo.done === true" ng-click = "update(todo)"></td>
+                <td>{{ todo.title}}</td>
+                <td><ng-show ng-show = "todo.done === true">Complete</ng-show></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
