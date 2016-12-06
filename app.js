@@ -1,52 +1,49 @@
 angular.module('TodoApp',[])
-    .service('TodoService', function(){
-      var self = this
+  .service('TodoService', function(){
+    var self = this
+    self.todos  = [
+      {title:'massage',done:false},
+      {title:'test',done:true}
+    ]
 
-      self.todos  = [
-        {title:'massage',done:false},
-        {title:'test',done:true}
-      ]
+    self.list = function () {
+      return self.todos
+    }
 
-      self.list = function () {
-        return self.todos
+    self.add = function (todo) {
+      self.todos.push(todo);
+    }
+
+    self.update = function (item){
+      if(item.done === false){
+        item.done = true
       }
-
-      self.add = function (todo) {
-        self.todos.push(todo);
+      else if(item.done === true){
+        item.done = false
       }
-
-      self.update = function (item){
-        if(item.done === false){
-          item.done = true
+    }
+  })
+  .controller('ListTodoController', function ($scope, TodoService) {
+    $scope.todos = TodoService.list();
+  })
+  .controller('AddTodoController', function ($scope, TodoService) {
+    $scope.title = ''
+    $scope.add = function () {
+      if($scope.title !== ''){
+        var todo = {
+        title: $scope.title,
+        done: false
         }
-        else if(item.done === true){
-          item.done = false
-        }
+        TodoService.add(todo)
+        resetTodo()
       }
-
-    })
-    .controller('ListTodoController', function ($scope, TodoService) {
-      $scope.todos = TodoService.list();
-    })
-    .controller('AddTodoController', function ($scope, TodoService) {
-          $scope.title = ''
-          $scope.add = function () {
-            if($scope.title !== ''){
-              var todo = {
-                title: $scope.title,
-                done: false
-              }
-              TodoService.add(todo)
-              resetTodo()
-            }
-          }
-
-          function resetTodo(){
-            $scope.title = ''
-          }
-    })
-    .controller('UpdateCheckboxController', function ($scope, TodoService) {
-      $scope.update = function (item){
-        TodoService.update(item)
-      }
-    })
+    }
+    function resetTodo(){
+      $scope.title = ''
+    }
+  })
+  .controller('UpdateCheckboxController', function ($scope, TodoService) {
+    $scope.update = function (item){
+    TodoService.update(item)
+    }
+  })
