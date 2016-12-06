@@ -1,7 +1,7 @@
 {
   "name": "todos",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is todos program",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/NarezTwentyFour/todos#readme",
   "dependencies": {
-    "angular": "^1.5.8",
+    "angular": "^1.5.9",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.1"
   },
